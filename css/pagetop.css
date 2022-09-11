@@ -1,0 +1,110 @@
+@import "../css/style.css";
+
+/*リンクの形状*/
+#page-top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 5px;
+  width: 100px;
+  height: 200px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.6rem;
+  transition: all 0.3s;
+  font-size: 10px;
+}
+
+#page-top img {
+  transform: rotate(180deg);
+  margin: 0;
+}
+
+#page-top p {
+  transform: rotate(90deg);
+  margin: 160px 0 0 -28px;
+}
+
+#page-top a:hover {
+  background: transparent;
+}
+
+@media screen and (max-width:768px) {
+  #page-top a:hover {
+    background: transparent;
+  }
+}
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  left: 40px;
+  bottom: 180px;
+  z-index: 100;
+  /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove {
+  animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(250px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove {
+  animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(250px);
+  }
+}
+
+/*検証のためのCSS*/
+/* section {
+  padding: 500px 0;
+} */
+
+
+
+/* レスポンシブ */
+
+/* @media screen and (max-width:640px) {
+
+  /*リンクを右下に固定*/
+/* #page-top {
+    position: fixed;
+    left: 40px;
+    bottom: 300px;
+    z-index: 100;
+    /*はじめは非表示*/
+/* opacity: 0;
+    transform: translateY(100px);
+  }
+
+} */

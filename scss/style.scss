@@ -1,0 +1,1723 @@
+@import "../css/6-1-2.css";
+@import "../css/5-2-7.css";
+@import "../css/5-1-14.css";
+@import "../css/responsive.css";
+
+// -----------------------------
+// 設定
+// -----------------------------
+
+$main-color: #579DA7;
+$sub-color: #2A4E64;
+$acsent-color: #BCB0A3;
+$base-color: #fff;
+$fontsize-p: 15px;
+$fontsize-h3: 20px;
+$fontsize-h2: 40px;
+$fontsize-top: 80px;
+$fontsize-date: 14px;
+$fontsize-cardp: 13px;
+$fontsize-small: 10px;
+
+@mixin center {
+  margin: 0 auto;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@mixin vertical {
+  writing-mode: vertical-rl;
+}
+
+@mixin left-line {
+  display: block;
+  background-color: $base-color;
+  width: 0;
+  height: 1px;
+  position: relative;
+  top: 25px;
+  left: -200px;
+  content: '';
+}
+
+@mixin right-line {
+  display: block;
+  background-color: $base-color;
+  width: 0;
+  height: 1px;
+  position: relative;
+  top: 25px;
+  right: -200px;
+  content: '';
+}
+
+@mixin vertical-line {
+  display: block;
+  background-color: #e6e7e8;
+  width: 1px;
+  height: 0;
+  position: relative;
+  top: 0;
+  left: 50%;
+  content: '';
+}
+
+
+// -----------------------------
+// 全体構造
+// -----------------------------
+
+body {
+  background-color: $main-color;
+  color: $base-color;
+  font-family: "Canela Web", "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif, Calibri, sans-serif;
+  font-size: $fontsize-p;
+}
+
+a {
+  z-index: 1000;
+  transition: all .3s ease;
+}
+
+p {
+  line-height: 1.6em;
+}
+
+// -----------------------------
+// ヘッダー
+// -----------------------------
+
+.top {
+
+  header {
+    @include flex-row();
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+
+    h1 {
+      width: 200px;
+      margin-left: 80px;
+
+      a {
+        padding: 30px 0;
+        display: block;
+      }
+    }
+
+    ul {
+      @include flex-row();
+      text-align: left;
+      margin-right: 80px;
+      height: 70px;
+
+      a {
+        margin-right: 30px;
+        padding: 30px 0 10px 0;
+        display: block;
+      }
+
+      a.nav-icon {
+        padding: 27px 0;
+        margin-right: 20px;
+        font-size: 18px;
+      }
+
+    }
+
+  }
+
+  small {
+    @include vertical();
+    font-size: $fontsize-small;
+    margin: 120px 40px;
+    width: 100%;
+
+    position: fixed;
+    top: 20%;
+    right: 40px;
+    z-index: 50;
+    pointer-events: none;
+    width: 100%;
+  }
+
+}
+
+.home-top {
+  width: 100%;
+  height: 100vh;
+
+  img.logo {
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    z-index: 2;
+  }
+
+  .scroll {
+    position: absolute;
+    bottom: 180px;
+    left: 80px;
+    z-index: 3;
+
+    p {
+      @include vertical();
+      margin-bottom: 10px;
+      font-size: $fontsize-small;
+    }
+
+    img {
+      height: 90px;
+    }
+  }
+
+}
+
+// -----------------------------
+// メイン コンテンツ
+// -----------------------------
+
+.tate {
+  @include flex-row();
+  width: 500px;
+  margin: 150px auto 150px auto;
+  padding: 0 10px 0 0;
+
+  h2 {
+    @include vertical();
+    font-size: $fontsize-h3;
+    width: 40px;
+    letter-spacing: 0.7em;
+    order: 1;
+    line-height: 50px;
+  }
+
+  p {
+    @include vertical();
+    width: 400px;
+    line-height: 50px;
+    letter-spacing: 0.7em;
+  }
+}
+
+.yoko {
+  margin-left: 35%;
+  margin-bottom: 200px;
+
+  h3 {
+    font-size: $fontsize-h3;
+    margin-bottom: 10px;
+    line-height: 1.6;
+
+    br {
+      display: none;
+    }
+  }
+
+  h4 {
+    br {
+      display: none;
+    }
+  }
+}
+
+
+// -----------------------------
+// フッター
+// -----------------------------
+
+footer {
+  background-color: $base-color;
+  color: #657A81;
+  padding: 200px 0 280px 150px;
+
+  .inner {
+    @include center();
+
+    .footer-wrapper {
+      @include flex-row();
+      justify-content: start;
+
+      .footer-left {
+        width: 30%;
+
+        h1 {
+          margin-bottom: 20px;
+          height: 50px;
+        }
+
+        a {
+          width: 160px;
+          display: inline-block;
+        }
+
+        a.nav-icon {
+          width: 20px;
+          font-size: 20px;
+        }
+
+      }
+
+      .footer-right {
+        @include flex-row();
+        flex-wrap: wrap;
+        justify-content: start;
+        width: 70%;
+
+        .footer-access {
+          margin: 0 100px 110px 0;
+
+          a {
+            display: block;
+          }
+
+          p {
+            margin-bottom: 40px;
+            width: 360px;
+          }
+
+          address {
+            line-height: 1.6em;
+            margin-bottom: 30px;
+          }
+
+          .access-btn {
+            margin-bottom: 0;
+          }
+
+          img {
+            margin-top: -20px;
+          }
+        }
+
+        .footer-nav {
+          width: 100%;
+
+          ul {
+            @include flex-row();
+            justify-content: start;
+
+            a {
+              margin-right: 30px;
+              display: block;
+              padding-bottom: 10px;
+            }
+          }
+        }
+      }
+
+      small {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+// -----------------------------
+// メイン アクティビティ
+// -----------------------------
+
+.activity {
+
+  .copy {
+    width: 360px;
+    margin-left: 40%;
+    margin-bottom: 150px;
+
+    h2 {
+      font-size: $fontsize-h2;
+      margin-bottom: 10px;
+    }
+  }
+
+  // プールセクション
+
+  section.pool {
+    @include flex-row();
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 150px;
+
+    .first-left {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+    }
+
+    .first-right {
+      position: relative;
+      top: 40%;
+      right: 0;
+      z-index: 5;
+      width: 50%;
+      height: 70%;
+      background-color: $main-color;
+      margin-left: -30%;
+      padding: 120px 190px 120px 90px;
+
+      h4 {
+        font-size: $fontsize-h2;
+        margin-bottom: 50px;
+      }
+
+      p.ja {
+        margin-bottom: 20px;
+      }
+
+      p.en {
+        margin-bottom: 50px;
+      }
+
+      a {
+        pointer-events: auto;
+        display: block;
+      }
+
+    }
+
+    // 横線のあしらいの記述
+    // ーーーーーーーーーー
+
+    .first-right.is-show:before {
+      //親タグに:beforeで横幅をつける
+      width: 180px;
+      pointer-events: none;
+    }
+
+    .first-right:before {
+      //親タグに:beforeで細かい設定をつける
+      @include left-line();
+      pointer-events: none;
+    }
+  }
+
+
+  // アクティブセクション
+
+  section.stay {
+    @include flex-row();
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 150px;
+
+    .second-right {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      order: 2;
+    }
+
+    .second-left {
+      position: relative;
+      top: 40%;
+      right: 0;
+      z-index: 5;
+      width: 50%;
+      height: 70%;
+      background-color: $main-color;
+      margin-right: -30%;
+      padding: 120px 90px 120px 190px;
+      order: 1;
+
+      h4 {
+        font-size: $fontsize-h2;
+        margin-bottom: 50px;
+      }
+
+      p.ja {
+        margin-bottom: 20px;
+      }
+
+      p.en {
+        margin-bottom: 50px;
+      }
+
+      a {
+        pointer-events: auto;
+        display: block;
+      }
+    }
+
+    // 横線のあしらいの記述
+    // ーーーーーーーーーー
+    .second-left.is-show:before {
+      //親タグに:beforeで横幅をつける
+      width: 180px;
+      pointer-events: none;
+    }
+
+    .second-left:before {
+      //親タグに:beforeで細かい設定をつける
+      @include right-line();
+      right: -100%;
+      pointer-events: none;
+    }
+  }
+
+
+  // ビーチセクション
+
+  section.beach {
+
+    @include flex-row();
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 150px;
+
+    .first-left {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+    }
+
+    .first-right {
+      position: relative;
+      top: 40%;
+      right: 0;
+      z-index: 5;
+      width: 50%;
+      height: 70%;
+      background-color: $main-color;
+      margin-left: -30%;
+      padding: 120px 190px 120px 90px;
+
+      h4 {
+        font-size: $fontsize-h2;
+        margin-bottom: 50px;
+      }
+
+      p.ja {
+        margin-bottom: 20px;
+      }
+
+      p.en {
+        margin-bottom: 50px;
+      }
+
+      a {
+        pointer-events: auto;
+        display: block;
+      }
+
+    }
+
+    // 横線のあしらいの記述
+    // ーーーーーーーーーー
+
+    .first-right.is-show:before {
+      //親タグに:beforeで横幅をつける
+      width: 180px;
+      pointer-events: none;
+    }
+
+    .first-right:before {
+      //親タグに:beforeで細かい設定をつける
+      @include left-line();
+
+      pointer-events: none;
+    }
+
+  }
+
+
+  // 観光セクション
+
+  section.sightseeing {
+    @include flex-row();
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 200px;
+
+    .second-right {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      order: 2;
+    }
+
+    .second-left {
+      position: relative;
+      top: 40%;
+      right: 0;
+      z-index: 5;
+      width: 50%;
+      height: 70%;
+      background-color: $main-color;
+      margin-right: -30%;
+      padding: 120px 90px 120px 190px;
+      order: 1;
+
+      h4 {
+        font-size: $fontsize-h2;
+        margin-bottom: 50px;
+      }
+
+      p.ja {
+        margin-bottom: 20px;
+      }
+
+      p.en {
+        margin-bottom: 50px;
+      }
+
+      a {
+        pointer-events: auto;
+        display: block;
+      }
+    }
+
+    // 横線のあしらいの記述
+    // ーーーーーーーーーー
+    .second-left.is-show:before {
+      //親タグに:beforeで横幅をつける
+      width: 180px;
+      pointer-events: none;
+    }
+
+    .second-left:before {
+      //親タグに:beforeで細かい設定をつける
+      @include right-line();
+      right: -100%;
+      pointer-events: none;
+    }
+
+  }
+}
+
+
+
+// -----------------------------
+// メイン NEWS
+// -----------------------------
+
+.news {
+  background-color: $acsent-color;
+  padding-bottom: 150px;
+
+  h2 {
+    font-size: $fontsize-h2;
+    text-align: center;
+    margin: 50px auto 80px auto;
+  }
+
+  .wrapper {
+    @include flex-row();
+    width: 1200px;
+    margin: 0 auto;
+
+    .card {
+      margin-left: 30px;
+
+      img {
+        margin-bottom: 15px;
+      }
+
+      .date {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+// 縦線のあしらいの記述
+// ーーーーーーーーーー
+
+.news.is-show:before {
+  //親タグに:beforeで高さをつける
+  height: 150px;
+  pointer-events: none;
+}
+
+.news:before {
+  //親タグに:beforeで細かい設定をつける
+  @include vertical-line();
+  pointer-events: none;
+}
+
+
+// -----------------------------
+// stay コンテンツ
+// -----------------------------
+
+#stay {
+
+  .top {
+    background-color: $acsent-color;
+    height: 100vh;
+
+    .home-top {
+
+      img {
+        width: 85%;
+        height: 80%;
+        object-fit: cover;
+        margin: 0 70px;
+      }
+
+      .name-menu {
+        width: 650px;
+        height: 80px;
+        display: inline-block;
+        position: absolute;
+        top: 77%;
+        right: 5%;
+        z-index: 10;
+
+        h2 {
+          font-size: $fontsize-top;
+
+          br {
+            display: none;
+          }
+        }
+
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+      div.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        right: 50px;
+        pointer-events: none;
+      }
+
+      .name-menu:before {
+        //親タグに:beforeで細かい設定をつける
+        @include right-line();
+        top: 52px;
+        left: -180px;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .contents {
+
+    h5 {
+      font-size: 13px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    h2 {
+      width: 380px;
+    }
+
+  }
+
+  // 縦線のあしらいの記述
+  // ーーーーーーーーーー
+
+  .contents.is-show:before {
+    //親タグに:beforeで高さをつける
+    height: 150px;
+    pointer-events: none;
+  }
+
+  .contents:before {
+    //親タグに:beforeで細かい設定をつける
+    @include vertical-line();
+    pointer-events: none;
+  }
+
+
+  .room-list {
+    h2 {
+      font-size: $fontsize-h2;
+      margin-left: 40%;
+      margin-bottom: 150px;
+    }
+
+    .presidential {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 900px;
+      width: 1500px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .first-left {
+        width: 80%;
+      }
+
+      .first-right {
+        width: 60%;
+        padding: 20px 80px 80px 80px;
+        background-color: $main-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        p.floa {
+          margin-bottom: 80px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+
+      .first-right.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        pointer-events: none;
+      }
+
+      .first-right:before {
+        //親タグに:beforeで細かい設定をつける
+        @include left-line();
+        pointer-events: none;
+      }
+    }
+
+    .crown {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 900px;
+      width: 1500px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .second-right {
+        width: 80%;
+        order: 2;
+      }
+
+      .second-left {
+        order: 1;
+        width: 60%;
+        padding: 20px 80px 80px 80px;
+        background-color: $main-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        p.floa {
+          margin-bottom: 80px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+      .second-left.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        right: -95%;
+        pointer-events: none;
+      }
+
+      .second-left:before {
+        //親タグに:beforeで細かい設定をつける
+        @include right-line();
+        pointer-events: none;
+      }
+    }
+
+    .royal {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 900px;
+      width: 1500px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .first-left {
+        width: 80%;
+      }
+
+      .first-right {
+        width: 60%;
+        padding: 20px 80px 80px 80px;
+        background-color: $main-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        p.floa {
+          margin-bottom: 80px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+
+      .first-right.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        pointer-events: none;
+      }
+
+      .first-right:before {
+        //親タグに:beforeで細かい設定をつける
+        @include left-line();
+        pointer-events: none;
+      }
+    }
+
+    .premium {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 900px;
+      width: 1500px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .second-right {
+        width: 80%;
+        order: 2;
+      }
+
+      .second-left {
+        order: 1;
+        width: 60%;
+        padding: 20px 80px 80px 80px;
+        background-color: $main-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        p.floa {
+          margin-bottom: 80px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+      .second-left.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        right: -95%;
+        pointer-events: none;
+      }
+
+      .second-left:before {
+        //親タグに:beforeで細かい設定をつける
+        @include right-line();
+        pointer-events: none;
+      }
+    }
+  }
+
+  .plan {
+    background-color: $sub-color;
+    padding-bottom: 50px;
+
+    h2 {
+      text-align: center;
+      font-size: $fontsize-h2;
+      margin: 50px 0 150px 0;
+    }
+
+    .wrapper {
+      @include flex-row();
+      width: 1100px;
+      margin: 0 auto 130px auto;
+
+      .card {
+        width: 480px;
+        height: 555px;
+
+        div.img {
+          img {
+            display: block;
+            width: 440px;
+            height: 300px;
+          }
+        }
+
+        div.p {
+          margin: -100px 0 0 40px;
+          width: 440px;
+          height: 340px;
+          background-color: $base-color;
+          position: relative;
+          padding: 30px;
+
+          a {
+            display: block;
+            color: #657A81;
+
+            h5 {
+              font-size: 18px;
+              line-height: 1.6;
+              margin-bottom: 30px;
+            }
+
+            p {
+              margin-bottom: 30px;
+            }
+
+            .planp-flex {
+              @include flex-row();
+              align-items: end;
+              margin-bottom: 30px;
+
+              p.date {
+                font-size: 14px;
+              }
+
+              p.meal {
+                width: 140px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                border: 1px solid #657A81;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  // 縦線のあしらいの記述
+  // ーーーーーーーーーー
+
+  .plan.is-show:before {
+    //親タグに:beforeで高さをつける
+    height: 150px;
+    pointer-events: none;
+  }
+
+  .plan:before {
+    //親タグに:beforeで細かい設定をつける
+    @include vertical-line();
+    pointer-events: none;
+  }
+
+
+  .info {
+    background-color: $acsent-color;
+    padding-bottom: 100px;
+
+    h2 {
+      font-size: $fontsize-h2;
+      margin: 50px 0;
+      text-align: center;
+    }
+
+    .check {
+      @include flex-row();
+      justify-content: center;
+      font-size: $fontsize-h3;
+
+      p {
+        margin: 0 10px;
+      }
+    }
+
+    .point {
+      @include flex-row();
+      align-items: center;
+      width: 400px;
+      height: 60px;
+      margin: 50px auto 0 auto;
+
+      p {
+        img {
+          margin: 0 0 0 30px;
+        }
+      }
+
+      p:last-child {
+        margin-top: 7px;
+      }
+
+    }
+  }
+
+  // 縦線のあしらいの記述
+  // ーーーーーーーーーー
+
+  .info.is-show:before {
+    //親タグに:beforeで高さをつける
+    height: 150px;
+    pointer-events: none;
+  }
+
+  .info:before {
+    //親タグに:beforeで細かい設定をつける
+    @include vertical-line();
+    pointer-events: none;
+  }
+
+}
+
+
+
+// -----------------------------
+// bar コンテンツ
+// -----------------------------
+
+#bar {
+
+  .top {
+    background-color: $acsent-color;
+    height: 100vh;
+
+    .home-top {
+
+      img {
+        width: 85%;
+        height: 80%;
+        object-fit: cover;
+        margin: 0 70px;
+      }
+
+      .name-menu {
+        width: 850px;
+        height: 80px;
+        display: inline-block;
+        // background-color: red;
+        position: absolute;
+        top: 77%;
+        right: 5%;
+        z-index: 10;
+
+        h2 {
+          font-size: $fontsize-top;
+
+          br {
+            display: none;
+          }
+        }
+
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+      div.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        right: 50px;
+        pointer-events: none;
+      }
+
+      .name-menu:before {
+        //親タグに:beforeで細かい設定をつける
+        @include right-line();
+        top: 52px;
+        left: -180px;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .contents {
+    margin-bottom: 250px;
+
+    h5 {
+      font-size: 13px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    h2 {
+      width: 380px;
+    }
+
+  }
+
+  // 縦線のあしらいの記述
+  // ーーーーーーーーーー
+
+  .contents.is-show:before {
+    //親タグに:beforeで高さをつける
+    height: 150px;
+    pointer-events: none;
+  }
+
+  .contents:before {
+    //親タグに:beforeで細かい設定をつける
+    @include vertical-line();
+    pointer-events: none;
+  }
+
+
+  .restaurant-list {
+
+    background-color: $sub-color;
+
+    .copy {
+      img {
+        margin-bottom: 250px;
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .osean-view {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 850px;
+      width: 1700px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .first-left {
+        position: relative;
+        top: 150px;
+        left: -280px;
+        width: 1000px;
+        order: 3;
+      }
+
+      .first-center {
+        position: relative;
+        left: -160px;
+        width: 1400px;
+        order: 2;
+      }
+
+      .first-right {
+        position: relative;
+        top: 250px;
+        left: 250px;
+        order: 1;
+        width: 750px;
+        padding: 60px 80px 80px 80px;
+        background-color: $sub-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+    }
+
+    .bbq {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 850px;
+      width: 1700px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .second-right {
+        position: relative;
+        top: 150px;
+        left: -880px;
+        width: 1000px;
+        order: 3;
+      }
+
+      .second-center {
+        position: relative;
+        top: 0;
+        left: 235px;
+        width: 1400px;
+        order: 2;
+      }
+
+      .second-left {
+        position: relative;
+        top: 250px;
+        left: 1000px;
+        order: 1;
+        width: 750px;
+        padding: 60px 80px 80px 80px;
+        background-color: $sub-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+    }
+
+    .breakfast {
+      margin-left: 100px;
+      margin-bottom: 80px;
+      height: 850px;
+      width: 1700px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .first-left {
+        position: relative;
+        top: 150px;
+        left: -280px;
+        width: 1000px;
+        order: 3;
+      }
+
+      .first-center {
+        position: relative;
+        left: -160px;
+        width: 1400px;
+        order: 2;
+      }
+
+      .first-right {
+        position: relative;
+        top: 250px;
+        left: 250px;
+        order: 1;
+        width: 750px;
+        padding: 60px 80px 80px 80px;
+        background-color: $sub-color;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+          text-align: start;
+          line-height: 1.1em;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+    }
+
+
+  }
+
+
+}
+
+
+
+// -----------------------------
+//  アクセス
+// -----------------------------
+
+#access {
+
+  .top {
+    background-color: $acsent-color;
+    height: 100vh;
+
+    .home-top {
+      height: 100vh;
+
+      iframe {
+        position: relative;
+        top: 45%;
+        left: 0;
+        width: 100%;
+        height: 55%;
+      }
+
+      // スナジーマップ
+      // .map {
+      //   position: relative;
+      //   top: 45%;
+      //   left: 0;
+      //   bottom: 0;
+      //   width: 100%;
+      //   height: 60vh;
+      //   object-fit: cover;
+      //   margin-bottom: 0;
+      // }
+
+      .name-menu {
+        width: 850px;
+        height: 80px;
+        display: inline-block;
+        position: absolute;
+        top: 33%;
+        left: 5%;
+        z-index: 10;
+
+        h2 {
+          font-size: $fontsize-top;
+
+          br {
+            display: none;
+          }
+        }
+
+      }
+
+      // 横線のあしらいの記述
+      // ーーーーーーーーーー
+      div.is-show:before {
+        //親タグに:beforeで横幅をつける
+        width: 150px;
+        right: 50px;
+        pointer-events: none;
+      }
+
+      .name-menu:before {
+        //親タグに:beforeで細かい設定をつける
+        @include right-line();
+        top: 65px;
+        left: 96%;
+        pointer-events: none;
+      }
+    }
+  }
+
+
+  .transportation {
+    background-color: $sub-color;
+    padding-top: 250px;
+
+    .t-wrapper {
+      width: 1000px;
+      margin: 0 auto 150px auto;
+      @include flex-row();
+
+      .car {
+        width: 510px;
+        // margin-left: 40px;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+      .bus {
+        width: 510px;
+        margin-left: 100px;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        p {
+          margin-bottom: 50px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+          margin-bottom: 50px;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+    }
+
+    .p-wrapper {
+      width: 1000px;
+      margin: 0 auto;
+      @include flex-row();
+
+      .parking {
+        width: 510px;
+
+        h4 {
+          font-size: $fontsize-h2;
+          margin-bottom: 10px;
+        }
+
+        h3 {
+          line-height: 1.6;
+          margin-bottom: 50px;
+        }
+
+        .flow {
+          @include flex-row();
+
+          .first-left {
+            margin: 0 40px;
+
+            img {
+              width: 20px;
+            }
+          }
+
+          li {
+            margin-top: -10px;
+            margin-bottom: 100px;
+            line-height: 1.6;
+          }
+
+          li.first {
+            margin-bottom: 105px;
+          }
+
+          li.second {
+            margin-bottom: 100px;
+          }
+
+          li.third {
+            margin-bottom: 100px;
+          }
+        }
+      }
+
+      .price {
+        width: 510px;
+        margin-top: 460px;
+        margin-left: 100px;
+
+        h5 {
+          font-size: $fontsize-h3;
+          margin-bottom: 50px;
+        }
+
+        ul {
+          margin-left: 1em;
+          line-height: 1.6;
+          margin-bottom: 30px;
+
+          li {
+            list-style: disc;
+            margin-left: 1em;
+            margin-bottom: 10px;
+
+
+            br {
+              display: none;
+            }
+          }
+        }
+
+        p.first {
+          margin-bottom: 30px;
+
+          span {
+            letter-spacing: 0.3em;
+          }
+        }
+
+        p.second {
+          margin-bottom: 15px;
+        }
+
+        p.third {
+          margin-bottom: 30px;
+        }
+
+        a {
+          pointer-events: auto;
+          display: block;
+          margin-bottom: 50px;
+
+          p {
+            margin-bottom: -10px;
+          }
+        }
+      }
+
+    }
+
+    .address {
+      background-color: #2A4E64;
+      height: 600px;
+
+      .inner {
+        margin: 150px auto 200px auto;
+        width: 1000px;
+        height: 420px;
+        background-color: #547182;
+        text-align: center;
+        margin-bottom: 150px;
+        padding: 100px 0;
+
+        h2 {
+          font-size: $fontsize-h2;
+          margin-bottom: 60px;
+        }
+
+        ul {
+          @include flex-row();
+          justify-content: start;
+          width: 500px;
+          margin: 0 auto 40px auto;
+          text-align: left;
+
+          li {
+            br {
+              display: none;
+            }
+          }
+
+          li:first-child {
+            width: 220px;
+          }
+        }
+      }
+    }
+
+  }
+
+}
